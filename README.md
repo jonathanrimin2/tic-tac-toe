@@ -4,7 +4,7 @@
 
 ## Description
 
-The initial configuration of the board should be provided. The program asks to enter the coordinates where the user wants to make a move. Then, it determines the state of match.
+The simplest implementation of computer vs human game: Computer starts the game. Makes all the moves in '**easy**' mode. i.e., makes a completely random move.
 
 ## Example
 

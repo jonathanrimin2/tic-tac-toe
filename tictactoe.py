@@ -1,7 +1,9 @@
+import random
 from collections import Counter
 
+
 class Board:
-    def __init__(self, config : str):
+    def __init__(self, config: str = ' ' * 9):
         config = config.replace('_', ' ')
         self.config = config
 
@@ -12,7 +14,9 @@ class Board:
         c = Counter(self.config)
         return 'X' if c['X'] == c['O'] else 'O'
 
-    def take_move(self):
+    def take_move(self, player=None):
+        if player is None:
+            player = self.whose_turn()
         while True:
             move = input('Enter the coordinates: ')
             try:
@@ -30,9 +34,16 @@ class Board:
                 print('This cell is occupied! Choose another one!')
                 continue
             break
-
-        player = self.whose_turn()
         self.config = self.config[:(3 - y) * 3 + x - 1] + player + self.config[(3 - y) * 3 + x:]
+
+    def make_move(self, difficulty='easy', player=None):
+        if player is None:
+            player = self.whose_turn()
+        print('Making move level "%s"' % difficulty)
+        p = random.randrange(9)
+        while self.config[p] != ' ':
+            p = random.randrange(9)
+        self.config = self.config[:p] + player + self.config[p + 1:]
 
     def print(self):
         print('---------')
@@ -62,26 +73,15 @@ class Board:
         return 'Game not finished'
 
 
-while True:
-    initial_config = input('Enter cells: ')
-    if any([c not in 'XO_' for c in initial_config]):
-        print('Onlt "X", "O" and "_" are accepted.')
-        continue
-    if len(initial_config) != 9:
-        print('Exactly 9 cells are required')
-        continue
-    break
-        
-board = Board(initial_config)
-
+board = Board()
 board.print()
 
-initial_board_state = board.get_state()
+while board.get_state() == 'Game not finished':
+    board.make_move('easy', 'X')
+    board.print()
+    if board.get_state() != 'Game not finished':
+        break
+    board.take_move('O')
+    board.print()
 
-if initial_board_state != 'Game not finished':
-    print(initial_board_state)
-    exit()
-
-board.take_move()
-board.print()
 print(board.get_state())
