@@ -4,7 +4,9 @@
 
 ## Description
 
-The simplest implementation of computer vs human game: Computer starts the game. Makes all the moves in '**easy**' mode. i.e., makes a completely random move.
+A simple implementation of tic-tac-toe:
+You can play with the AI or with a friend. If you get bored you can watch two AI's fighting too.
+Note that only `easy` mode of AI is available for now. 
 
 ## Example
 
