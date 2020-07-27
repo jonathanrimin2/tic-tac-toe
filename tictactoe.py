@@ -30,7 +30,7 @@ class Board:
             else:
                 print('Coordinates should be from 1 to 3!')
                 continue
-            if board.get_sq(x, y) != ' ':
+            if self.get_sq(x, y) != ' ':
                 print('This cell is occupied! Choose another one!')
                 continue
             break
