@@ -1,7 +1,7 @@
 import random
 from collections import Counter
 
-player_modes = ['user', 'easy']
+player_modes = ['user', 'easy', 'medium']
 
 
 class Board:
@@ -19,7 +19,7 @@ class Board:
     def make_move(self, difficulty='easy', player=None):
         if player is None:
             player = self.whose_turn()
-
+        opponent = 'O' if player == 'X' else 'X'
         if difficulty == 'user':
             while True:
                 move = input('Enter the coordinates: ')
@@ -41,6 +41,20 @@ class Board:
             self.config = self.config[:(3 - y) * 3 + x - 1] + player + self.config[(3 - y) * 3 + x:]
         else:
             print('Making move level "%s"' % difficulty)
+            if difficulty == 'medium':
+                difficulty = 'easy'
+                for c_index, c in enumerate(self.config):
+                    if c == ' ' and ('%s wins' % player) == self.get_state(self.config[:c_index] + player + self.config[c_index + 1:]):
+                        self.config = self.config[:c_index] + player + self.config[c_index + 1:]
+                        difficulty = 'medium'
+                        break
+                else:
+                    for c_index, c in enumerate(self.config):
+                        if c == ' ' and ('%s wins' % opponent) == self.get_state(self.config[:c_index] + opponent + self.config[c_index + 1:]):
+                            self.config = self.config[:c_index] + player + self.config[c_index + 1:]
+                            difficulty = 'medium'
+                            break
+
             if difficulty == 'easy':
                 p = random.randrange(9)
                 while self.config[p] != ' ':
@@ -56,21 +70,23 @@ class Board:
             print('|')
         print('---------')
 
-    def get_state(self):
-        if all([c != ' ' for c in self.config]):
+    def get_state(self, config=None):
+        if config is None:
+            config = self.config
+        if all([c != ' ' for c in config]):
             return 'Draw'
         for player in 'XO':
             # row win:
             for row in range(3):
-                if all([c == player for c in self.config[3 * row: 3 * (row + 1)]]):
+                if all([c == player for c in config[3 * row: 3 * (row + 1)]]):
                     return '%s wins' % player
             # column win:
             for column in range(3):
-                if all([c == player for c in self.config[column:: 3]]):
+                if all([c == player for c in config[column:: 3]]):
                     return '%s wins' % player
             # diagonal win:
-            if all([c == player for c in self.config[:: 4]]) or \
-                    all([c == player for c in self.config[2:7: 2]]):
+            if all([c == player for c in config[:: 4]]) or \
+                    all([c == player for c in config[2:7: 2]]):
                 return '%s wins' % player
         return 'Game not finished'
 
