@@ -146,3 +146,7 @@ Draw
 
 Input command: > exit
 ```
+
+## License
+
+This project is licensed under the MIT License. For details, check the [LICENSE file](LICENSE).
