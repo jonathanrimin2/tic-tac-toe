@@ -2,13 +2,13 @@ import random
 from collections import Counter
 
 player_modes = ['user', 'easy', 'medium', 'unbeatable']
+INFINITY = 999999
 
 class Board:
 
     def __init__(self, config: str = ' ' * 9):
         config = config.replace('_', ' ')
         self.config = config
-        self.counter = 0
 
     def get_sq(self, x, y, config):
         return config[(3 - y) * 3 + x - 1]
@@ -97,48 +97,40 @@ class Board:
         return 'Game not finished'
 
     def perform_unbeatable_move(self, player):
-        rank = -999999
+        rank = -INFINITY
         unbeatable_config = self.config
         for c_index, c in enumerate(self.config):
             if c == ' ':
-                new_rank = self.get_rank(self.config[:c_index] + player + self.config[c_index + 1:], player)
-                print("c_index: " + str(c_index) + "  new_rank: " + str(new_rank))
-                if new_rank >= rank:
+                new_config = self.config[:c_index] + player + self.config[c_index + 1:]
+                new_rank = self.get_rank(new_config, player)
+                if new_rank > rank:
                     rank = new_rank
-                    unbeatable_config = (self.config[:c_index] + player + self.config[c_index + 1:])
-        print("Decision_made with self.counter: " + str(self.counter))
+                    unbeatable_config = new_config
         return unbeatable_config
 
-    def get_rank(self, config, player, rank=0, configs=None):
+    def get_rank(self, config, player):
         turn = self.whose_turn(config)
         opponent = 'O' if player == 'X' else 'X'
-        #self.print(config)
-        #print("Generated rank for config: " + str(rank))
-        #print("### Player code: " + str(player) + " ###")
         result = self.get_state(config)
-        #print("### State reslt: " + str(result) + " ###")
+
         if ('%s wins' % player) == result:
-            rank = 1
+            return 1
         elif ('%s wins' % opponent) == result:
-            rank = -1
+            return -1
         elif 'Draw' == result:
-            rank = 0
+            return 0
         else:
+            # Define -infinity for
+            rank = -INFINITY if turn == player else INFINITY
             for c_index, c in enumerate(config):
                 if c == ' ':
-                    # rank = int(rank) + int(self.get_rank(config[:c_index] + turn + config[c_index + 1:], player, rank))
-                    # new_rank = int(self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
-                    # self.print(config)
-                    # print("config: " + str(config) + "   new_rank: " + str(new_rank) + "   rank: " + str(rank))
-                    rank = int(rank) + int(self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
-                    # self.counter = self.counter + 1
-                    # print("self.counter: " + str(self.counter))
-                    # if self.counter > 200:
-                    #     print("AAhaa!")
-        return rank
-
-    def is_symmetrical(self, config1, config2):
-        return 0
+                    if turn == player:
+                        # Maximize for turns made by player
+                        rank = max(rank, self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
+                    else:
+                        # Minimize for turns made by opponent
+                        rank = min(rank, self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
+            return rank
 
 
 def play(player1='easy', player2='easy'):
