@@ -1,3 +1,7 @@
+![GitHub](https://img.shields.io/github/license/j-tesla/tic-tac-toe?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/j-tesla/tic-tac-toe?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/j-tesla/tic-tac-toe?style=flat-square)
+
 # Tic-Tac-Toe with AI
 
 -----
