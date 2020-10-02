@@ -9,9 +9,11 @@
 ## Description
 
 A simple implementation of tic-tac-toe: You can play with the AI or with a
-friend. If you get bored you can watch two AI's fighting too. 
+friend. If you get bored you can watch two AI's fighting too.
 
-To participate, select the `user` mode. As a player, you can select which position to mark by entering the column (numbers at bottom) and row (numbers on the left side). See the [Example section](#Example).
+To participate, select the `user` mode. As a player, you can select which
+position to mark by entering the column (numbers at bottom) and row (numbers on
+the left side). See the [Example section](#Example).
 
 For AI, there is `easy`, `medium`, and `unbeatable` mode.
 
@@ -42,70 +44,70 @@ Enter mode for Player 2: > medium
 2 |       |
 1 |       |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 2 2
   ---------
 3 |       |
 2 |   X   |
 1 |       |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 |       |
 2 |   X   |
 1 | O     |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 1 3
   ---------
 3 | X     |
 2 |   X   |
 1 | O     |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X     |
 2 |   X   |
 1 | O   O |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 2 1
   ---------
 3 | X     |
 2 |   X   |
 1 | O X O |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X O   |
 2 |   X   |
 1 | O X O |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 1 2
   ---------
 3 | X O   |
 2 | X X   |
 1 | O X O |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X O   |
 2 | X X O |
 1 | O X O |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 3 3
   ---------
 3 | X O X |
 2 | X X O |
 1 | O X O |
   ---------
-    1 2 3  
+    1 2 3
 Draw
 
 Enter mode for Player 1: > medium
@@ -115,70 +117,70 @@ Enter mode for Player 2: > user
 2 |       |
 1 |       |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 |       |
 2 |       |
 1 |   X   |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 2 2
   ---------
 3 |       |
 2 |   O   |
 1 |   X   |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 |       |
 2 |   O   |
 1 | X X   |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 3 1
   ---------
 3 |       |
 2 |   O   |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X     |
 2 |   O   |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 1 2
   ---------
 3 | X     |
 2 | O O   |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X     |
 2 | O O X |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Enter the coordinates: > 3 3
   ---------
 3 | X   O |
 2 | O O X |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Making move level "medium"
   ---------
 3 | X X O |
 2 | O O X |
 1 | X X O |
   ---------
-    1 2 3  
+    1 2 3
 Draw
 
 Enter mode for Player 1: > exit
@@ -186,4 +188,5 @@ Enter mode for Player 1: > exit
 
 ## License
 
-This project is licensed under the MIT License. For details, check the [LICENSE file](LICENSE).
+This project is licensed under the MIT License. For details, check the
+[LICENSE file](LICENSE).
