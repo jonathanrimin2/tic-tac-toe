@@ -1,25 +1,30 @@
 # Tic-Tac-Toe with AI
 
------
+---
 
 ## Description
 
-A simple implementation of tic-tac-toe:
-You can play with the AI or with a friend. If you get bored you can watch two AI's fighting too.
-Along with the `easy` mode, which simply makes random moves, `medium` mode and `unbeatable` modes are available.
+A simple implementation of tic-tac-toe: You can play with the AI or with a
+friend. If you get bored you can watch two AI's fighting too. Along with the
+`easy` mode, which simply makes random moves, `medium` mode and `unbeatable`
+modes are available.
 
 The `medium` mode AI makes a move using the following process:
 
-1. If it can win in one move (if it has two in a row), it places a third to get three in a row and win.
-2. If the opponent can win in one move, it plays the third itself to block the opponent to win.
+1. If it can win in one move (if it has two in a row), it places a third to get
+   three in a row and win.
+2. If the opponent can win in one move, it plays the third itself to block the
+   opponent to win.
 3. Otherwise, it makes a random move.
 
-The `unbeatable` mode AI uses [minmax](https://en.wikipedia.org/wiki/Minimax) algorithm which makes it unbeatable.
+The `unbeatable` mode AI uses [minmax](https://en.wikipedia.org/wiki/Minimax)
+algorithm which makes it unbeatable.
 
 ## Example
 
-The example below shows how the program works.
-The greater-than symbol followed by space (`> `) represents the user input. Notice that it's not the part of the input.
+The example below shows how the program works. The greater-than symbol followed
+by space (`>`) represents the user input. Notice that it's not the part of the
+input.
 
 ```
 Input command: > start user medium
