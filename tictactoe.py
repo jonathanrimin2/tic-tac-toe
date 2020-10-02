@@ -99,7 +99,7 @@ class Board:
                     return "%s wins" % player
             # diagonal win:
             if all([c == player for c in config[::4]]) or all(
-                [c == player for c in config[2:7:2]]):
+                    [c == player for c in config[2:7:2]]):
                 return "%s wins" % player
         # Moved to after the win check
         # Reason: If the last move decides the victor, it should not be declared as Draw
@@ -183,7 +183,7 @@ if __name__ == "__main__":
         if command not in player_modes:
             print("Bad parameters!")
             print("Enter one of the following mode: " +
-                ", ".join(player_modes))
+                  ", ".join(player_modes))
 
             continue
 
