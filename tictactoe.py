@@ -76,13 +76,14 @@ class Board:
                 self.config = self.config[:p] + player + self.config[p + 1:]
 
     def print(self):
-        print("---------")
+        print("  ---------")
         for y_coordinate in [3, 2, 1]:
-            print("|", end=" ")
+            print("%d |" % y_coordinate, end=" ")
             for x_coordinate in [1, 2, 3]:
                 print(self.get_sq(x_coordinate, y_coordinate), end=" ")
             print("|")
-        print("---------")
+        print("  ---------")
+        print("    1 2 3  ")
 
     def get_state(self, config=None):
         if config is None:
