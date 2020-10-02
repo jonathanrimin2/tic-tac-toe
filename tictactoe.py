@@ -170,16 +170,28 @@ def play(player1="easy", player2="easy"):
 
 
 if __name__ == "__main__":
+    player_num = 1
+    mode_commands = list()
+
     while True:
-        command = input("Input command: ")
+        command = input("Enter mode for Player %d: " % player_num)
+
         if command == "exit":
             break
-        command = command.split(" ")
-        if command[0] != "start" or len(command) != 3:
+
+        if command not in player_modes:
             print("Bad parameters!")
-            continue
-        elif command[1] not in player_modes or command[2] not in player_modes:
-            print("Bad parameters!")
+            print("Enter one of the following mode: " +
+                ", ".join(player_modes))
+
             continue
 
-        play(*command[1:])
+        mode_commands.append(command)
+
+        if player_num == 1:
+            player_num += 1
+
+        else:
+            play(*mode_commands)
+            player_num = 1
+            mode_commands = list()
