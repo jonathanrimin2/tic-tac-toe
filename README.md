@@ -9,9 +9,13 @@
 ## Description
 
 A simple implementation of tic-tac-toe: You can play with the AI or with a
-friend. If you get bored you can watch two AI's fighting too. Along with the
-`easy` mode, which simply makes random moves, `medium` mode and `unbeatable`
-modes are available.
+friend. If you get bored you can watch two AI's fighting too. 
+
+To participate, select the `user` mode. As a player, you can select which position to mark by entering the column (numbers at bottom) and row (numbers on the left side). See the [Example section](#Example).
+
+For AI, there is `easy`, `medium`, and `unbeatable` mode.
+
+The `easy` mode simply makes random moves.
 
 The `medium` mode AI makes a move using the following process:
 
@@ -31,131 +35,153 @@ by space (`>`) represents the user input. Notice that it's not the part of the
 input.
 
 ```
-Input command: > start user medium
----------
-|       |
-|       |
-|       |
----------
+Enter mode for Player 1: > user
+Enter mode for Player 2: > medium
+  ---------
+3 |       |
+2 |       |
+1 |       |
+  ---------
+    1 2 3  
 Enter the coordinates: > 2 2
----------
-|       |
-|   X   |
-|       |
----------
+  ---------
+3 |       |
+2 |   X   |
+1 |       |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-|       |
-|   X   |
-| O     |
----------
+  ---------
+3 |       |
+2 |   X   |
+1 | O     |
+  ---------
+    1 2 3  
 Enter the coordinates: > 1 3
----------
-| X     |
-|   X   |
-| O     |
----------
+  ---------
+3 | X     |
+2 |   X   |
+1 | O     |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X     |
-|   X   |
-| O   O |
----------
+  ---------
+3 | X     |
+2 |   X   |
+1 | O   O |
+  ---------
+    1 2 3  
 Enter the coordinates: > 2 1
----------
-| X     |
-|   X   |
-| O X O |
----------
+  ---------
+3 | X     |
+2 |   X   |
+1 | O X O |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X O   |
-|   X   |
-| O X O |
----------
+  ---------
+3 | X O   |
+2 |   X   |
+1 | O X O |
+  ---------
+    1 2 3  
 Enter the coordinates: > 1 2
----------
-| X O   |
-| X X   |
-| O X O |
----------
+  ---------
+3 | X O   |
+2 | X X   |
+1 | O X O |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X O   |
-| X X O |
-| O X O |
----------
+  ---------
+3 | X O   |
+2 | X X O |
+1 | O X O |
+  ---------
+    1 2 3  
 Enter the coordinates: > 3 3
----------
-| X O X |
-| X X O |
-| O X O |
----------
+  ---------
+3 | X O X |
+2 | X X O |
+1 | O X O |
+  ---------
+    1 2 3  
 Draw
 
-Input command: > start medium user
----------
-|       |
-|       |
-|       |
----------
+Enter mode for Player 1: > medium
+Enter mode for Player 2: > user
+  ---------
+3 |       |
+2 |       |
+1 |       |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-|       |
-|       |
-|   X   |
----------
+  ---------
+3 |       |
+2 |       |
+1 |   X   |
+  ---------
+    1 2 3  
 Enter the coordinates: > 2 2
----------
-|       |
-|   O   |
-|   X   |
----------
+  ---------
+3 |       |
+2 |   O   |
+1 |   X   |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-|       |
-|   O   |
-| X X   |
----------
+  ---------
+3 |       |
+2 |   O   |
+1 | X X   |
+  ---------
+    1 2 3  
 Enter the coordinates: > 3 1
----------
-|       |
-|   O   |
-| X X O |
----------
+  ---------
+3 |       |
+2 |   O   |
+1 | X X O |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X     |
-|   O   |
-| X X O |
----------
+  ---------
+3 | X     |
+2 |   O   |
+1 | X X O |
+  ---------
+    1 2 3  
 Enter the coordinates: > 1 2
----------
-| X     |
-| O O   |
-| X X O |
----------
+  ---------
+3 | X     |
+2 | O O   |
+1 | X X O |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X     |
-| O O X |
-| X X O |
----------
+  ---------
+3 | X     |
+2 | O O X |
+1 | X X O |
+  ---------
+    1 2 3  
 Enter the coordinates: > 3 3
----------
-| X   O |
-| O O X |
-| X X O |
----------
+  ---------
+3 | X   O |
+2 | O O X |
+1 | X X O |
+  ---------
+    1 2 3  
 Making move level "medium"
----------
-| X X O |
-| O O X |
-| X X O |
----------
+  ---------
+3 | X X O |
+2 | O O X |
+1 | X X O |
+  ---------
+    1 2 3  
 Draw
 
-Input command: > exit
+Enter mode for Player 1: > exit
 ```
 
 ## License
