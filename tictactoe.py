@@ -4,6 +4,7 @@ from collections import Counter
 player_modes = ['user', 'easy', 'medium', 'unbeatable']
 INFINITY = 999999
 
+
 class Board:
 
     def __init__(self, config: str = ' ' * 9):
@@ -41,7 +42,8 @@ class Board:
                     print('This cell is occupied! Choose another one!')
                     continue
                 break
-            self.config = self.config[:(3 - y) * 3 + x - 1] + player + self.config[(3 - y) * 3 + x:]
+            self.config = self.config[:(
+                3 - y) * 3 + x - 1] + player + self.config[(3 - y) * 3 + x:]
         else:
             print('Making move level "%s"' % difficulty)
             if difficulty == 'unbeatable':
@@ -51,13 +53,15 @@ class Board:
                 difficulty = 'easy'
                 for c_index, c in enumerate(self.config):
                     if c == ' ' and ('%s wins' % player) == self.get_state(self.config[:c_index] + player + self.config[c_index + 1:]):
-                        self.config = self.config[:c_index] + player + self.config[c_index + 1:]
+                        self.config = self.config[:c_index] + \
+                            player + self.config[c_index + 1:]
                         difficulty = 'medium'
                         break
                 else:
                     for c_index, c in enumerate(self.config):
                         if c == ' ' and ('%s wins' % opponent) == self.get_state(self.config[:c_index] + opponent + self.config[c_index + 1:]):
-                            self.config = self.config[:c_index] + player + self.config[c_index + 1:]
+                            self.config = self.config[:c_index] + \
+                                player + self.config[c_index + 1:]
                             difficulty = 'medium'
                             break
 
@@ -103,7 +107,8 @@ class Board:
         unbeatable_config = self.config
         for c_index, c in enumerate(self.config):
             if c == ' ':
-                new_config = self.config[:c_index] + player + self.config[c_index + 1:]
+                new_config = self.config[:c_index] + \
+                    player + self.config[c_index + 1:]
                 new_rank = self.get_rank(new_config, player)
                 if new_rank > rank:
                     rank = new_rank
@@ -128,10 +133,12 @@ class Board:
                 if c == ' ':
                     if turn == player:
                         # Maximize for turns made by player
-                        rank = max(rank, self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
+                        rank = max(rank, self.get_rank(
+                            config[:c_index] + turn + config[c_index + 1:], player))
                     else:
                         # Minimize for turns made by opponent
-                        rank = min(rank, self.get_rank(config[:c_index] + turn + config[c_index + 1:], player))
+                        rank = min(rank, self.get_rank(
+                            config[:c_index] + turn + config[c_index + 1:], player))
             return rank
 
 
