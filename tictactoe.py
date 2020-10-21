@@ -2,6 +2,7 @@ import random
 from collections import Counter
 
 player_modes = ["user", "easy", "medium", "unbeatable"]
+default_mode = "easy"
 INFINITY = 999999
 
 
@@ -155,7 +156,7 @@ class Board:
             return rank
 
 
-def play(player1="easy", player2="easy"):
+def play(player1=default_mode, player2=default_mode):
     board = Board()
     board.print()
 
@@ -175,7 +176,9 @@ if __name__ == "__main__":
     mode_commands = list()
 
     while True:
-        command = input("Enter mode for Player %d: " % player_num)
+        print("Available modes: " + ", ".join(player_modes))
+        command = (input("Enter mode for Player %d [%s]: " %
+                         (player_num, default_mode)) or default_mode)
 
         if command == "exit":
             break
