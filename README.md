@@ -2,6 +2,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/j-tesla/tic-tac-toe?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/j-tesla/tic-tac-toe?style=flat-square)
 
+[![DeepSource](https://deepsource.io/gh/j-tesla/tic-tac-toe.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/j-tesla/tic-tac-toe/?ref=repository-badge)
+
 # Tic-Tac-Toe with AI
 
 ---
