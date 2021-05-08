@@ -130,7 +130,7 @@ class Board:
             return 1
         if ("%s wins" % opponent) == result:
             return -1
-        if "Draw" == result:
+        if result == "Draw":
             return 0
         # Define -infinity for
         rank = -INFINITY if turn == player else INFINITY
