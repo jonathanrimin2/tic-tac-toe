@@ -172,7 +172,7 @@ def play(player1=default_mode, player2=default_mode):
 
 if __name__ == "__main__":
     player_num = 1
-    mode_commands = list()
+    mode_commands = []
 
     while True:
         print("Available modes: " + ", ".join(player_modes))
@@ -197,4 +197,4 @@ if __name__ == "__main__":
         else:
             play(*mode_commands)
             player_num = 1
-            mode_commands = list()
+            mode_commands = []
