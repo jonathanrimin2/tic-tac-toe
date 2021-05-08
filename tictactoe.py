@@ -92,19 +92,19 @@ class Board:
         for player in "XO":
             # row win:
             for row in range(3):
-                if all([c == player for c in config[3 * row:3 * (row + 1)]]):
+                if all(c == player for c in config[3 * row:3 * (row + 1)]):
                     return "%s wins" % player
             # column win:
             for column in range(3):
-                if all([c == player for c in config[column::3]]):
+                if all(c == player for c in config[column::3]):
                     return "%s wins" % player
             # diagonal win:
-            if all([c == player for c in config[::4]]) or all(
-                [c == player for c in config[2:7:2]]):
+            if all(c == player for c in config[::4]) or all(
+                c == player for c in config[2:7:2]):
                 return "%s wins" % player
         # Moved to after the win check
         # Reason: If the last move decides the victor, it should not be declared as Draw
-        if all([c != " " for c in config]):
+        if all(c != " " for c in config):
             return "Draw"
         return "Game not finished"
 
