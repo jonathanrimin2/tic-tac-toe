@@ -128,32 +128,31 @@ class Board:
 
         if ("%s wins" % player) == result:
             return 1
-        elif ("%s wins" % opponent) == result:
+        if ("%s wins" % opponent) == result:
             return -1
-        elif "Draw" == result:
+        if "Draw" == result:
             return 0
-        else:
-            # Define -infinity for
-            rank = -INFINITY if turn == player else INFINITY
-            for c_index, c in enumerate(config):
-                if c == " ":
-                    if turn == player:
-                        # Maximize for turns made by player
-                        rank = max(
-                            rank,
-                            self.get_rank(
-                                config[:c_index] + turn + config[c_index + 1:],
-                                player),
-                        )
-                    else:
-                        # Minimize for turns made by opponent
-                        rank = min(
-                            rank,
-                            self.get_rank(
-                                config[:c_index] + turn + config[c_index + 1:],
-                                player),
-                        )
-            return rank
+        # Define -infinity for
+        rank = -INFINITY if turn == player else INFINITY
+        for c_index, c in enumerate(config):
+            if c == " ":
+                if turn == player:
+                    # Maximize for turns made by player
+                    rank = max(
+                        rank,
+                        self.get_rank(
+                            config[:c_index] + turn + config[c_index + 1:],
+                            player),
+                    )
+                else:
+                    # Minimize for turns made by opponent
+                    rank = min(
+                        rank,
+                        self.get_rank(
+                            config[:c_index] + turn + config[c_index + 1:],
+                            player),
+                    )
+        return rank
 
 
 def play(player1=default_mode, player2=default_mode):
