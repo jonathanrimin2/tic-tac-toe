@@ -127,9 +127,9 @@ class Board:
         opponent = "O" if player == "X" else "X"
         result = self.get_state(config)
 
-        if ("%s wins" % player) == result:
+        if ("%d wins" % player) == result:
             return 1
-        if ("%s wins" % opponent) == result:
+        if ("%d wins" % opponent) == result:
             return -1
         if result == "Draw":
             return 0
@@ -173,14 +173,16 @@ def play(player1=default_mode, player2=default_mode):
 
 if __name__ == "__main__":
     player_num = 1
+    player_name = input("Enter your name: ")
     mode_commands = []
+
 
     while True:
         print("Available modes: " + ", ".join(player_modes))
-        command = (input("Enter mode for Player %d [%s]: " %
-                         (player_num, default_mode)) or default_mode)
+        command = (input("Enter mode for Player %d, %s [%s]: " %
+                         (player_num, player_name, default_mode)) or default_mode)
 
-        if command == "exit":
+        if command == "break":
             break
 
         if command not in player_modes:
@@ -194,6 +196,7 @@ if __name__ == "__main__":
 
         if player_num == 1:
             player_num += 1
+
 
         else:
             play(*mode_commands)
