@@ -42,6 +42,7 @@ class Board:
                     print("This cell is occupied! Choose another one!")
                     continue
                 break
+
             self.config = (self.config[:(3 - y) * 3 + x - 1] + player +
                            self.config[(3 - y) * 3 + x:])
         else:
@@ -174,14 +175,24 @@ def play(player1=default_mode, player2=default_mode):
 if __name__ == "__main__":
     player_num = 1
     player_name = input("Enter your name: ")
+    print("Hi %s, welcome to the tic-tac-toe game" %player_name)
+    player_board_size = input("How large do you want the board to be, 3x3, 4x4, 5x5, %s? " %player_name)
+    player_rounds = int(input("How many rounds do you want to play,%s? " %player_name))
+    count = 0
     mode_commands = []
 
-    while True:
+
+
+
+
+    while True and count < player_rounds:
+        count += 1
         print("Available modes: " + ", ".join(player_modes))
         command = (input("Enter mode for Player %d, %s [%s]: " %
                          (player_num, player_name, default_mode)) or default_mode)
 
-        if command == "break":
+        if command == "exit":
+            print("Ok, the game will be exited ")
             break
 
         if command not in player_modes:
@@ -201,3 +212,7 @@ if __name__ == "__main__":
             play(*mode_commands)
             player_num = 1
             mode_commands = []
+
+
+
+
