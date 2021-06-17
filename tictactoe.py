@@ -26,7 +26,7 @@ class Board:
         opponent = "O" if player == "X" else "X"
         if difficulty == "user":
             while True:
-                move = input("Enter the coordinates: ")
+                move = input("Enter the coordinates, %s: " % player_name)
                 try:
                     x, y = move.strip().split(" ")
                     x, y = int(x), int(y)
@@ -63,8 +63,8 @@ class Board:
                     for c_index, c in enumerate(self.config):
                         if c == " " and ("%s wins" %
                                          opponent) == self.get_state(
-                                             self.config[:c_index] + opponent +
-                                             self.config[c_index + 1:]):
+                            self.config[:c_index] + opponent +
+                            self.config[c_index + 1:]):
                             self.config = (self.config[:c_index] + player +
                                            self.config[c_index + 1:])
                             difficulty = "medium"
@@ -115,7 +115,7 @@ class Board:
         for c_index, c in enumerate(self.config):
             if c == " ":
                 new_config = self.config[:c_index] + player + self.config[
-                    c_index + 1:]
+                                                              c_index + 1:]
                 new_rank = self.get_rank(new_config, player)
                 if new_rank > rank:
                     rank = new_rank
@@ -175,7 +175,6 @@ if __name__ == "__main__":
     player_num = 1
     player_name = input("Enter your name: ")
     mode_commands = []
-
 
     while True:
         print("Available modes: " + ", ".join(player_modes))
