@@ -176,13 +176,26 @@ if __name__ == "__main__":
     player_num = 1
     player_name = input("Enter your name: ")
     print("Hi %s, welcome to the tic-tac-toe game" %player_name)
-    player_board_size = input("How large do you want the board to be, 3x3, 4x4, 5x5, %s? " %player_name)
+
+    print("How large do you want the board to be, %s? " %player_name)
+    area = int(input("Enter the number of grids, %s: " %player_name))
+    unit = int(input("Enter how large the grid is, %s: " %player_name))
+
     player_rounds = int(input("How many rounds do you want to play,%s? " %player_name))
     count = 0
     mode_commands = []
 
+    #sourced from: https://stackoverflow.com/questions/50106387/python-printing-grid-of-varying-sizes/50106542
+
+    def print_grid(area, unit):
+        for _ in range(area):
+            print(("+" + "- " * unit) * area + "+")
+            for _ in range(unit):
+                print(("|" + "  " * unit) * area + "|")
+        print(("+" + "- " * unit) * area + "+")
 
 
+    print_grid(area,unit)
 
 
     while True and count < player_rounds:
